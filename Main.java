@@ -220,6 +220,6 @@ public class Main{
 		m.bread();
 		m.eat();
 		m.sleep();
-		
+		m.huntingType();
 	}
 }
