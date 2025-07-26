@@ -295,16 +295,16 @@ class Book{
 
 class Human{
 	Brain b= new Brain(1.4f,72);
-	Heart h = new Heart(0.5f,"Red");
+	Heart ha = new Heart(0.5f,"Red");
 	
-	public void bike(Bike e){
-		System.out.println(e.getBrand());
-		System.out.println(e.getMileage());
+	public void bike(Bike b){
+		System.out.println(b.getBrand());
+		System.out.println(b.getMileage());
 	}
 	
-	public void book(Book b) {
-		System.out.println(b.getName());
-		System.out.println(b.getAuthor());
+	public void book(Book bo) {
+		System.out.println(bo.getName());
+		System.out.println(bo.getAuthor());
 	}
 }
 
@@ -313,9 +313,20 @@ public class Main{
 		Human h = new Human ();
 		Bike b = new Bike("GT",10.5f);
 		Book bo = new Book("Java","James Gosling");
-		System.out.println(b.getBrand());
+		System.out.println(h.b.getWeight());
+		System.out.println(h.b.getBPM());
+		System.out.println(h.ha.getWeight());
+		System.out.println(h.ha.getColour());
+		
+		h.bike(b);
+		h.book(bo);
+		h=null;
+		System.out.println(h.b.getWeight());
+		System.out.println(h.b.getBPM());
+		System.out.println(h.ha.getWeight());
+		System.out.println(h.ha.getColour());
+		
 		System.out.println(b.getMileage());
-		System.out.println(bo.getName());
-		System.out.println(bo.getAuthor());
+
 	}
 }
