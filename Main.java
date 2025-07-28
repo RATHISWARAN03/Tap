@@ -377,10 +377,27 @@ package tap;
 // 	}
 // }
 
+// public class Main{
+// 	public static void main(String []  args){
+// 		String s = "RajaRamMohanRoy";
+// 		System.out.println(s.substring(7));
+// 		System.out.println(s.substring(0,3));
+// 	}
+// }
+
+
+class Calculator{
+	void add(int a,byte b){
+		System.out.println("int byte");
+	}
+	void add(int a,char b){
+		System.out.println("int char");
+	}
+}
+
 public class Main{
-	public static void main(String []  args){
-		String s = "RajaRamMohanRoy";
-		System.out.println(s.substring(7));
-		System.out.println(s.substring(0,3));
+	public static void main(String [] args){
+		Calculator calc = new Calculator();
+		calc.add('a','b');
 	}
 }
