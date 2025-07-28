@@ -227,106 +227,137 @@ package tap;
 
 // ------------------------------------Associator--------------------------------
 
-class Brain{
-	private float weight;
-	private float BPM;
+// class Brain{
+// 	private float weight;
+// 	private float BPM;
 	
-	Brain(float weight, float BPM ){
-		this.weight = weight;
-		this.BPM = BPM;
+// 	Brain(float weight, float BPM ){
+// 		this.weight = weight;
+// 		this.BPM = BPM;
+// 	}
+// 	public float getWeight() {
+// 		return weight;
+// 	}
+// 	public float getBPM() {
+// 		return BPM;
+// 	}
+// }
+
+// class Heart{
+// 	private float weight;
+// 	private String colour;
+	
+// 	public Heart(float weight, String colour) {
+// 		this.weight = weight;
+// 		this.colour = colour;
+// 	}
+	
+// 	public float getWeight() {
+// 		return weight;
+// 	}
+// 	public String getColour() {
+// 		return colour;
+// 	}
+// }
+
+// class Bike{
+// 	private String Brand;
+// 	private float Mileage;
+// 	public Bike(String Brand, float Mileage) {
+// 		this.Brand = Brand;
+// 		this.Mileage = Mileage;
+// 	}
+// 	public String getBrand() {
+// 		return Brand;
+// 	}
+// 	public float getMileage() {
+// 		return Mileage;
+// 	}	
+// }
+
+// class Book{
+// 	private String Name;
+// 	private String Author;
+// 	public Book(String Name, String Author) {
+// 		super();
+// 		this.Name = Name;
+// 		this.Author = Author;
+// 	}
+	
+// 	public String getName() {
+// 		return Name;
+// 	}
+// 	public String getAuthor() {
+// 		return Author;
+// 	}
+// }
+
+
+// class Human{
+// 	Brain b= new Brain(1.4f,72);
+// 	Heart ha = new Heart(0.5f,"Red");
+	
+// 	public void bike(Bike b){
+// 		System.out.println(b.getBrand());
+// 		System.out.println(b.getMileage());
+// 	}
+	
+// 	public void book(Book bo) {
+// 		System.out.println(bo.getName());
+// 		System.out.println(bo.getAuthor());
+// 	}
+// }
+
+// public class Main{
+// 	public static void main(String[] args) {
+// 		Human h = new Human ();
+// 		Bike b = new Bike("GT",10.5f);
+// 		Book bo = new Book("Java","James Gosling");
+// 		System.out.println(h.b.getWeight());
+// 		System.out.println(h.b.getBPM());
+// 		System.out.println(h.ha.getWeight());
+// 		System.out.println(h.ha.getColour());
+		
+// 		h.bike(b);
+// 		h.book(bo);
+// 		h=null;
+// 		System.out.println(h.b.getWeight());
+// 		System.out.println(h.b.getBPM());
+// 		System.out.println(h.ha.getWeight());
+// 		System.out.println(h.ha.getColour());
+		
+// 		System.out.println(b.getMileage());
+
+// 	}
+// }
+
+
+class Calculator{
+	void add() {
+		System.out.println(1);
 	}
-	public float getWeight() {
-		return weight;
+	void add(int a,int b) {
+		System.out.println(a+b);
 	}
-	public float getBPM() {
-		return BPM;
+	void add(int a,double b) {
+		System.out.println(a+b);
+	}
+	void add(double a,double b) {
+		System.out.println(a+b);
+	}
+	void add(int a,int b , int c) {
+		System.out.println(a+b);
 	}
 }
 
-class Heart{
-	private float weight;
-	private String colour;
-	
-	public Heart(float weight, String colour) {
-		this.weight = weight;
-		this.colour = colour;
-	}
-	
-	public float getWeight() {
-		return weight;
-	}
-	public String getColour() {
-		return colour;
-	}
-}
-
-class Bike{
-	private String Brand;
-	private float Mileage;
-	public Bike(String Brand, float Mileage) {
-		this.Brand = Brand;
-		this.Mileage = Mileage;
-	}
-	public String getBrand() {
-		return Brand;
-	}
-	public float getMileage() {
-		return Mileage;
-	}	
-}
-
-class Book{
-	private String Name;
-	private String Author;
-	public Book(String Name, String Author) {
-		super();
-		this.Name = Name;
-		this.Author = Author;
-	}
-	
-	public String getName() {
-		return Name;
-	}
-	public String getAuthor() {
-		return Author;
-	}
-}
-
-
-class Human{
-	Brain b= new Brain(1.4f,72);
-	Heart ha = new Heart(0.5f,"Red");
-	
-	public void bike(Bike b){
-		System.out.println(b.getBrand());
-		System.out.println(b.getMileage());
-	}
-	
-	public void book(Book bo) {
-		System.out.println(bo.getName());
-		System.out.println(bo.getAuthor());
-	}
-}
 
 public class Main{
 	public static void main(String[] args) {
-		Human h = new Human ();
-		Bike b = new Bike("GT",10.5f);
-		Book bo = new Book("Java","James Gosling");
-		System.out.println(h.b.getWeight());
-		System.out.println(h.b.getBPM());
-		System.out.println(h.ha.getWeight());
-		System.out.println(h.ha.getColour());
-		
-		h.bike(b);
-		h.book(bo);
-		h=null;
-		System.out.println(h.b.getWeight());
-		System.out.println(h.b.getBPM());
-		System.out.println(h.ha.getWeight());
-		System.out.println(h.ha.getColour());
-		
-		System.out.println(b.getMileage());
-
+		Calculator calc = new Calculator();
+		calc.add();
+		calc.add(1,2);
+		calc.add(1,2.2);
+		calc.add(4.6,2.2);
+		calc.add(6,2,4);
 	}
 }
