@@ -332,32 +332,48 @@ package tap;
 // }
 
 
-class Calculator{
-	void add() {
-		System.out.println(1);
-	}
-	void add(int a,int b) {
-		System.out.println(a+b);
-	}
-	void add(int a,double b) {
-		System.out.println(a+b);
-	}
-	void add(double a,double b) {
-		System.out.println(a+b);
-	}
-	void add(int a,int b , int c) {
-		System.out.println(a+b);
-	}
-}
+// class Calculator{
+// 	void add() {
+// 		System.out.println(1);
+// 	}
+// 	void add(int a,int b) {
+// 		System.out.println(a+b);
+// 	}
+// 	void add(int a,double b) {
+// 		System.out.println(a+b);
+// 	}
+// 	void add(double a,double b) {
+// 		System.out.println(a+b);
+// 	}
+// 	void add(int a,int b , int c) {
+// 		System.out.println(a+b);
+// 	}
+// }
+
+
+// public class Main{
+// 	public static void main(String[] args) {
+// 		Calculator calc = new Calculator();
+// 		calc.add();
+// 		calc.add(1,2);
+// 		calc.add(1,2.2);
+// 		calc.add(4.6,2.2);
+// 		calc.add(6,2,4);
+// 	}
+// }
 
 
 public class Main{
 	public static void main(String[] args) {
-		Calculator calc = new Calculator();
-		calc.add();
-		calc.add(1,2);
-		calc.add(1,2.2);
-		calc.add(4.6,2.2);
-		calc.add(6,2,4);
+		System.out.println(1);
+		main(1, 5);
+		main(1.6, 7);
+	}
+	public static void main(int a,int b) {
+		System.out.println(2);
+	}
+	public static void main(double a, int b) {
+		System.out.println(3);
 	}
 }
+
