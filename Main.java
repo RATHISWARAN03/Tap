@@ -363,17 +363,24 @@ package tap;
 // }
 
 
+// public class Main{
+// 	public static void main(String[] args) {
+// 		System.out.println(1);
+// 		main(1, 5);
+// 		main(1.6, 7);
+// 	}
+// 	public static void main(int a,int b) {
+// 		System.out.println(2);
+// 	}
+// 	public static void main(double a, int b) {
+// 		System.out.println(3);
+// 	}
+// }
+
 public class Main{
-	public static void main(String[] args) {
-		System.out.println(1);
-		main(1, 5);
-		main(1.6, 7);
-	}
-	public static void main(int a,int b) {
-		System.out.println(2);
-	}
-	public static void main(double a, int b) {
-		System.out.println(3);
+	public static void main(String []  args){
+		String s = "RajaRamMohanRoy";
+		System.out.println(s.substring(7));
+		System.out.println(s.substring(0,3));
 	}
 }
-
