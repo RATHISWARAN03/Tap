@@ -463,10 +463,27 @@ public class Main{
 			int a = n/m;
 			System.out.println(a);
 		}
+
+		catch (ArithmeticException a){
+			System.out.println("ArithmeticException is affected");
+		}
 		catch(Exception e) {
 			System.out.println("give valid divisor");
 		}
 		sc.close();
 	}
 }
-	
+
+// public class Main{
+// 	public static void main(String[] args) {
+// 		Scanner sc = new Scanner(System.in);
+// 		System.out.println("Enter the number 1st");
+// 		int n = sc.nextInt();
+// 		System.out.println("Enter the number 2nd");
+// 		int m = sc.nextInt();
+// 		System.out.println("Enter th total");
+// 		int a = n/m;
+// 		System.out.println(a);
+// 		sc.close();
+// 	}
+// }
