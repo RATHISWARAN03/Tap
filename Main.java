@@ -403,18 +403,70 @@ package tap;
 // }
 
 // ------------------------------------ambigious error ------------------------------------------------
-class Calculator{
-	void add(char a,int b){
-		System.out.println("char int");
-	}
-	void add(int a,char b){
-		System.out.println("int char");
-	}
-}
+// class Calculator{
+// 	void add(char a,int b){
+// 		System.out.println("char int");
+// 	}
+// 	void add(int a,char b){
+// 		System.out.println("int char");
+// 	}
+// }
+
+// public class Main{
+// 	public static void main(String [] args){
+// 		Calculator calc = new Calculator();
+// 		calc.add('a','b');
+// 	}
+// }
+
+
+//class Demo{
+//// 	public void add (){
+//// 		int a = 1;
+//// 		int b = 5;
+//// 		System.out.println(a+b);
+//// 	}
+//// }
+//
+//	// public void sub (int n){
+//		
+//	// }
+//	public int mul(){
+//		int  a = 5;
+//		int b = 5;
+//		return a*b;
+//	}
+//
+//
+//}
+//
+//
+//public class Main{
+//	public static void main(String[] args) {
+//		Demo a= new Demo();
+//		System.out.println(a.mul());
+//	}
+//}
+
+import java.util.Scanner;
 
 public class Main{
-	public static void main(String [] args){
-		Calculator calc = new Calculator();
-		calc.add('a','b');
+	public static void main(String[] args) {
+		Scanner sc = null;
+		try {
+			sc= new Scanner(System.in);
+			System.out.println("Enter the number 1st");
+			int n = sc.nextInt();
+			System.out.println("Enter the number 2nd");
+			int m = sc.nextInt();
+			System.out.println("Enter the total");
+			int a = n/m;
+			System.out.println(a);
+		}
+		catch(Exception e) {
+			System.out.println("give valid divisor");
+		}
+		sc.close();
 	}
 }
+	
