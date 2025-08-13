@@ -159,70 +159,70 @@ package tap;
 //     }
 // }
 
-// class Animal{
-// 	void bread(){
-// 		System.out.println("The Breade of Animal");
-// 	}
-// 	void eat() {
-// 		System.out.println("It can Eat");
-// 	}
-// 	void sleep() {
-// 		System.out.println("It can sleep");
-// 	}
-// }
-// class Lion extends Animal {
-// 	@Override
-// 	void eat() {
-// 		System.out.println("It eats animals");
-// 	}
-// 	void huntingType() {
-// 		System.out.println("It Hunts");
-// 	}
+class Animal{
+	void bread(){
+		System.out.println("The Breade of Animal");
+	}
+	void eat() {
+		System.out.println("It can Eat");
+	}
+	void sleep() {
+		System.out.println("It can sleep");
+	}
+}
+class Lion extends Animal {
+	@Override
+	void eat() {
+		System.out.println("It eats animals");
+	}
+	void huntingType() {
+		System.out.println("It Hunts");
+	}
 	
-// }
-// class Horse extends Animal {
-// 	@Override
-// 	void eat() {
-// 		System.out.println("It eats Grass");
-// 	}
-// 	void huntingType() {
-// 		System.out.println("It Never Hunts");
-// 	}
-// }
-// class Monkey extends Animal {
-// 	@Override
-// 	void eat() {
-// 		System.out.println("It eats Fruits and Vegitables");
-// 	}
-// 	void huntingType() {
-// 		System.out.println("It Never Hunts");
-// 	}
-// }
+}
+class Horse extends Animal {
+	@Override
+	void eat() {
+		System.out.println("It eats Grass");
+	}
+	void huntingType() {
+		System.out.println("It Never Hunts");
+	}
+}
+class Monkey extends Animal {
+	@Override
+	void eat() {
+		System.out.println("It eats Fruits and Vegitables");
+	}
+	void huntingType() {
+		System.out.println("It Never Hunts");
+	}
+}
 
 
-// public class Main{
-// 	public static void main(String[] args) {
-// 		Lion l= new Lion();
-// 		Horse h= new Horse();
-// 		Monkey m= new Monkey();
+public class Main{
+	public static void main(String[] args) {
+		Lion l= new Lion();
+		Horse h= new Horse();
+		Monkey m= new Monkey();
 		
-// 		l.bread();
-// 		l.eat();
-// 		l.sleep();
-// 		l.huntingType();
-// 		System.out.println("------------------------------------------------------");
-// 		h.bread();
-// 		h.eat();
-// 		h.sleep();
-// 		h.huntingType();
+		l.bread();
+		l.eat();
+		l.sleep();
+		l.huntingType();
+		System.out.println("------------------------------------------------------");
+		h.bread();
+		h.eat();
+		h.sleep();
+		h.huntingType();
 		
-// 		System.out.println("------------------------------------------------------");
-// 		m.bread();
-// 		m.eat();
-// 		m.sleep();
-// 		m.huntingType();
-// 	}
-// }
+		System.out.println("------------------------------------------------------");
+		m.bread();
+		m.eat();
+		m.sleep();
+		m.huntingType();
+	}
+}
 
 
 // ------------------------------------Associator--------------------------------
@@ -448,31 +448,31 @@ package tap;
 //	}
 //}
 
-import java.util.Scanner;
+// import java.util.Scanner;
 
-public class Main{
-	public static void main(String[] args) {
-		Scanner sc = null;
-		try {
-			sc= new Scanner(System.in);
-			System.out.println("Enter the number 1st");
-			int n = sc.nextInt();
-			System.out.println("Enter the number 2nd");
-			int m = sc.nextInt();
-			System.out.println("Enter the total");
-			int a = n/m;
-			System.out.println(a);
-		}
+// public class Main{
+// 	public static void main(String[] args) {
+// 		Scanner sc = null;
+// 		try {
+// 			sc= new Scanner(System.in);
+// 			System.out.println("Enter the number 1st");
+// 			int n = sc.nextInt();
+// 			System.out.println("Enter the number 2nd");
+// 			int m = sc.nextInt();
+// 			System.out.println("Enter the total");
+// 			int a = n/m;
+// 			System.out.println(a);
+// 		}
 
-		catch (ArithmeticException a){
-			System.out.println("ArithmeticException is affected");
-		}
-		catch(Exception e) {
-			System.out.println("give valid divisor");
-		}
-		sc.close();
-	}
-}
+// 		catch (ArithmeticException a){
+// 			System.out.println("ArithmeticException is affected");
+// 		}
+// 		catch(Exception e) {
+// 			System.out.println("give valid divisor");
+// 		}
+// 		sc.close();
+// 	}
+// }
 
 // public class Main{
 // 	public static void main(String[] args) {
@@ -487,3 +487,73 @@ public class Main{
 // 		sc.close();
 // 	}
 // }
+
+
+// public class Main{
+// 	public static void main(String[] args) {
+// 		disp();
+// 	}
+
+// 	void disp(){
+// 		disp();
+// 	}
+// }
+
+// ------------------------------Multi-threading using extends in inheritance------------------------------------
+
+class Adding extends Thread{
+	@Override
+	public void run() {
+		System.out.println("Addition process is starting");
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the first number:");
+		int a = sc.nextInt();
+		System.out.println("Enter the Second number:");
+		int b = sc.nextInt();
+		int c = a+b;
+		System.out.println(c);
+		System.out.println("Addition process is Completed");
+	}
+}
+
+class PrintChar extends Thread{
+	@Override
+	public void run() {
+		System.out.println("printing character process is starting");
+		for(int i = 65 ; i < 70 ; i++) {
+			System.out.println((char)(i));
+			try {
+				Thread.sleep(2000);
+			} catch (Exception e) {}
+		}
+		System.out.println("printing character process is Completed");
+		
+	}
+}
+
+class PrintNum extends Thread{
+	@Override
+	public void run() {
+		System.out.println("printing number process is Started");
+		for(int i = 1 ; i < 6 ; i++) {
+			System.out.println(i);
+			try {
+				Thread.sleep(2000);
+			} catch (Exception e) {}
+		}
+		System.out.println("printing number process is Completed");
+	}
+}
+
+public class Day2{
+	public static void main(String[] args) {
+		Adding a = new Adding();
+		PrintChar pc = new PrintChar();
+		PrintNum pn = new PrintNum();
+		
+		a.start();
+		pc.start();
+		pn.start();
+		
+	}
+}
