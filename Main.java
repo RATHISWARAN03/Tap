@@ -159,70 +159,70 @@ package tap;
 //     }
 // }
 
-class Animal{
-	void bread(){
-		System.out.println("The Breade of Animal");
-	}
-	void eat() {
-		System.out.println("It can Eat");
-	}
-	void sleep() {
-		System.out.println("It can sleep");
-	}
-}
-class Lion extends Animal {
-	@Override
-	void eat() {
-		System.out.println("It eats animals");
-	}
-	void huntingType() {
-		System.out.println("It Hunts");
-	}
+// class Animal{
+// 	void bread(){
+// 		System.out.println("The Breade of Animal");
+// 	}
+// 	void eat() {
+// 		System.out.println("It can Eat");
+// 	}
+// 	void sleep() {
+// 		System.out.println("It can sleep");
+// 	}
+// }
+// class Lion extends Animal {
+// 	@Override
+// 	void eat() {
+// 		System.out.println("It eats animals");
+// 	}
+// 	void huntingType() {
+// 		System.out.println("It Hunts");
+// 	}
 	
-}
-class Horse extends Animal {
-	@Override
-	void eat() {
-		System.out.println("It eats Grass");
-	}
-	void huntingType() {
-		System.out.println("It Never Hunts");
-	}
-}
-class Monkey extends Animal {
-	@Override
-	void eat() {
-		System.out.println("It eats Fruits and Vegitables");
-	}
-	void huntingType() {
-		System.out.println("It Never Hunts");
-	}
-}
+// }
+// class Horse extends Animal {
+// 	@Override
+// 	void eat() {
+// 		System.out.println("It eats Grass");
+// 	}
+// 	void huntingType() {
+// 		System.out.println("It Never Hunts");
+// 	}
+// }
+// class Monkey extends Animal {
+// 	@Override
+// 	void eat() {
+// 		System.out.println("It eats Fruits and Vegitables");
+// 	}
+// 	void huntingType() {
+// 		System.out.println("It Never Hunts");
+// 	}
+// }
 
 
-public class Main{
-	public static void main(String[] args) {
-		Lion l= new Lion();
-		Horse h= new Horse();
-		Monkey m= new Monkey();
+// public class Main{
+// 	public static void main(String[] args) {
+// 		Lion l= new Lion();
+// 		Horse h= new Horse();
+// 		Monkey m= new Monkey();
 		
-		l.bread();
-		l.eat();
-		l.sleep();
-		l.huntingType();
-		System.out.println("------------------------------------------------------");
-		h.bread();
-		h.eat();
-		h.sleep();
-		h.huntingType();
+// 		l.bread();
+// 		l.eat();
+// 		l.sleep();
+// 		l.huntingType();
+// 		System.out.println("------------------------------------------------------");
+// 		h.bread();
+// 		h.eat();
+// 		h.sleep();
+// 		h.huntingType();
 		
-		System.out.println("------------------------------------------------------");
-		m.bread();
-		m.eat();
-		m.sleep();
-		m.huntingType();
-	}
-}
+// 		System.out.println("------------------------------------------------------");
+// 		m.bread();
+// 		m.eat();
+// 		m.sleep();
+// 		m.huntingType();
+// 	}
+// }
 
 
 // ------------------------------------Associator--------------------------------
@@ -500,7 +500,7 @@ public class Main{
 // }
 
 // ------------------------------Multi-threading using extends in inheritance------------------------------------
-
+import java.util.Scanner;
 class Adding extends Thread{
 	@Override
 	public void run() {
@@ -545,7 +545,7 @@ class PrintNum extends Thread{
 	}
 }
 
-public class Day2{
+public class Main{
 	public static void main(String[] args) {
 		Adding a = new Adding();
 		PrintChar pc = new PrintChar();
