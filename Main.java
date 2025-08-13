@@ -500,8 +500,70 @@ package tap;
 // }
 
 // ------------------------------Multi-threading using extends in inheritance------------------------------------
+
+// import java.util.Scanner;
+// class Adding extends Thread{
+// 	@Override
+// 	public void run() {
+// 		System.out.println("Addition process is starting");
+// 		Scanner sc = new Scanner(System.in);
+// 		System.out.println("Enter the first number:");
+// 		int a = sc.nextInt();
+// 		System.out.println("Enter the Second number:");
+// 		int b = sc.nextInt();
+// 		int c = a+b;
+// 		System.out.println(c);
+// 		System.out.println("Addition process is Completed");
+// 	}
+// }
+
+// class PrintChar extends Thread{
+// 	@Override
+// 	public void run() {
+// 		System.out.println("printing character process is starting");
+// 		for(int i = 65 ; i < 70 ; i++) {
+// 			System.out.println((char)(i));
+// 			try {
+// 				Thread.sleep(2000);
+// 			} catch (Exception e) {}
+// 		}
+// 		System.out.println("printing character process is Completed");
+		
+// 	}
+// }
+
+// class PrintNum extends Thread{
+// 	@Override
+// 	public void run() {
+// 		System.out.println("printing number process is Started");
+// 		for(int i = 1 ; i < 6 ; i++) {
+// 			System.out.println(i);
+// 			try {
+// 				Thread.sleep(2000);
+// 			} catch (Exception e) {}
+// 		}
+// 		System.out.println("printing number process is Completed");
+// 	}
+// }
+
+// public class Main{
+// 	public static void main(String[] args) {
+// 		Adding a = new Adding();
+// 		PrintChar pc = new PrintChar();
+// 		PrintNum pn = new PrintNum();
+		
+// 		a.start();
+// 		pc.start();
+// 		pn.start();
+		
+// 	}
+// }
+
+//---------------------------Multi-threading using Implements in interfaces------------------------------------
+
 import java.util.Scanner;
-class Adding extends Thread{
+
+class Adding implements Runnable{
 	@Override
 	public void run() {
 		System.out.println("Addition process is starting");
@@ -516,7 +578,7 @@ class Adding extends Thread{
 	}
 }
 
-class PrintChar extends Thread{
+class PrintChar implements Runnable{
 	@Override
 	public void run() {
 		System.out.println("printing character process is starting");
@@ -531,7 +593,7 @@ class PrintChar extends Thread{
 	}
 }
 
-class PrintNum extends Thread{
+class PrintNum implements Runnable{
 	@Override
 	public void run() {
 		System.out.println("printing number process is Started");
@@ -551,9 +613,12 @@ public class Main{
 		PrintChar pc = new PrintChar();
 		PrintNum pn = new PrintNum();
 		
-		a.start();
-		pc.start();
-		pn.start();
+		Thread t1 = new Thread(a);
+		Thread t2 = new Thread(pc);
+		Thread t3 = new Thread(pn);
 		
+		t1.start();
+		t2.start();
+		t3.start();
 	}
 }
