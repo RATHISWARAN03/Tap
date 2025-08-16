@@ -660,12 +660,59 @@ package tap;
 
 //--------------------------------------Example of Inheritance with Constructor chaining--------------------------------------------- 
 
-	class Test1{
+// 	class Test1{
+// 	int a ;
+// 	int b ;
+	
+// 	Test1(){
+// 		// super();
+// 		a= 204;
+// 		b= 335;
+// 	}
+	
+// 	Test1(int a,int b){
+// 		this.a=a;
+// 		this.b=b;
+// 	}
+// }
+
+// class Test2 extends Test1{
+// 	int x;
+// 	int y;
+	
+// 	Test2(){
+// 		// super();
+// 		x = 965;
+// 		y = 416;
+// 	}
+	
+// 	Test2(int x,int y){
+// 		this.x = x;
+// 		this.y = y;
+// 	}
+	
+// 	void disp() {
+// 		System.out.println(a);
+// 		System.out.println(b);
+// 		System.out.println(x);
+// 		System.out.println(y);
+// 	}
+// }
+
+// public class Main{
+// 	public static void main(String[] args) {
+// 		Test2 t = new Test2();
+// 		t.disp();
+// 	}
+// }
+
+// ---------------------------------Example of Inheritance with Constructor chaining and super keyword with parameter constructer---------------------------------------
+
+class Test1{
 	int a ;
 	int b ;
 	
 	Test1(){
-		// super();
 		a= 204;
 		b= 335;
 	}
@@ -681,12 +728,12 @@ class Test2 extends Test1{
 	int y;
 	
 	Test2(){
-		// super();
 		x = 965;
 		y = 416;
 	}
 	
 	Test2(int x,int y){
+		super(x,y);
 		this.x = x;
 		this.y = y;
 	}
@@ -701,7 +748,7 @@ class Test2 extends Test1{
 
 public class Main{
 	public static void main(String[] args) {
-		Test2 t = new Test2();
+		Test2 t = new Test2(9,99);
 		t.disp();
 	}
 }
