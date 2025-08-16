@@ -706,18 +706,20 @@ package tap;
 // 	}
 // }
 
-// ---------------------------------Example of Inheritance with Constructor chaining and super keyword with parameter constructer---------------------------------------
+// -------------------------------Example of Inheritance with Constructor chaining and super and this keyword with parameter constructer-------------------------------
 
 class Test1{
 	int a ;
 	int b ;
 	
 	Test1(){
+		this(100,200 );
 		a= 204;
 		b= 335;
 	}
 	
 	Test1(int a,int b){
+		// super();
 		this.a=a;
 		this.b=b;
 	}
@@ -728,12 +730,13 @@ class Test2 extends Test1{
 	int y;
 	
 	Test2(){
+		this(9,99);
 		x = 965;
 		y = 416;
 	}
 	
 	Test2(int x,int y){
-		super(x,y);
+		// super();
 		this.x = x;
 		this.y = y;
 	}
@@ -748,7 +751,9 @@ class Test2 extends Test1{
 
 public class Main{
 	public static void main(String[] args) {
-		Test2 t = new Test2(9,99);
+		Test2 t = new Test2();
 		t.disp();
 	}
 }
+
+
