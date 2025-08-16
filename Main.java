@@ -561,64 +561,99 @@ package tap;
 
 //---------------------------Multi-threading using Implements in interfaces------------------------------------
 
-import java.util.Scanner;
+// import java.util.Scanner;
 
-class Adding implements Runnable{
-	@Override
-	public void run() {
-		System.out.println("Addition process is starting");
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter the first number:");
-		int a = sc.nextInt();
-		System.out.println("Enter the Second number:");
-		int b = sc.nextInt();
-		int c = a+b;
-		System.out.println(c);
-		System.out.println("Addition process is Completed");
-	}
-}
+// class Adding implements Runnable{
+// 	@Override
+// 	public void run() {
+// 		System.out.println("Addition process is starting");
+// 		Scanner sc = new Scanner(System.in);
+// 		System.out.println("Enter the first number:");
+// 		int a = sc.nextInt();
+// 		System.out.println("Enter the Second number:");
+// 		int b = sc.nextInt();
+// 		int c = a+b;
+// 		System.out.println(c);
+// 		System.out.println("Addition process is Completed");
+// 	}
+// }
 
-class PrintChar implements Runnable{
-	@Override
-	public void run() {
-		System.out.println("printing character process is starting");
-		for(int i = 65 ; i < 70 ; i++) {
-			System.out.println((char)(i));
-			try {
-				Thread.sleep(2000);
-			} catch (Exception e) {}
-		}
-		System.out.println("printing character process is Completed");
+// class PrintChar implements Runnable{
+// 	@Override
+// 	public void run() {
+// 		System.out.println("printing character process is starting");
+// 		for(int i = 65 ; i < 70 ; i++) {
+// 			System.out.println((char)(i));
+// 			try {
+// 				Thread.sleep(2000);
+// 			} catch (Exception e) {}
+// 		}
+// 		System.out.println("printing character process is Completed");
 		
+// 	}
+// }
+
+// class PrintNum implements Runnable{
+// 	@Override
+// 	public void run() {
+// 		System.out.println("printing number process is Started");
+// 		for(int i = 1 ; i < 6 ; i++) {
+// 			System.out.println(i);
+// 			try {
+// 				Thread.sleep(2000);
+// 			} catch (Exception e) {}
+// 		}
+// 		System.out.println("printing number process is Completed");
+// 	}
+// }
+
+// public class Main{
+// 	public static void main(String[] args) {
+// 		Adding a = new Adding();
+// 		PrintChar pc = new PrintChar();
+// 		PrintNum pn = new PrintNum();
+		
+// 		Thread t1 = new Thread(a);
+// 		Thread t2 = new Thread(pc);
+// 		Thread t3 = new Thread(pn);
+		
+// 		t1.start();
+// 		t2.start();
+// 		t3.start();
+// 	}
+// }
+
+// ---------------------------------------------Inheritance  Basic example-------------------------------------------------
+
+class Parent{
+	String color = "Black";
+	float height = 5.6f;
+	String lang = "Tamil";
+	
+	void speak() {
+		System.out.println("Speaking tamil language");
+	}
+	void drink() {
+		System.out.println("He never drunk");
+	}
+	void play() {
+		System.out.println("He play Cricket");
 	}
 }
 
-class PrintNum implements Runnable{
-	@Override
-	public void run() {
-		System.out.println("printing number process is Started");
-		for(int i = 1 ; i < 6 ; i++) {
-			System.out.println(i);
-			try {
-				Thread.sleep(2000);
-			} catch (Exception e) {}
-		}
-		System.out.println("printing number process is Completed");
-	}
+class Child extends Parent{
+	
 }
 
 public class Main{
 	public static void main(String[] args) {
-		Adding a = new Adding();
-		PrintChar pc = new PrintChar();
-		PrintNum pn = new PrintNum();
+		Child c = new Child();
+		System.out.println(c.color);
+		System.out.println(c.height);
+		System.out.println(c.lang);
 		
-		Thread t1 = new Thread(a);
-		Thread t2 = new Thread(pc);
-		Thread t3 = new Thread(pn);
-		
-		t1.start();
-		t2.start();
-		t3.start();
+		c.speak();
+		c.drink();
+		c.play();
 	}
 }
