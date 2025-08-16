@@ -625,35 +625,83 @@ package tap;
 
 // ---------------------------------------------Inheritance  Basic example-------------------------------------------------
 
-class Parent{
-	String color = "Black";
-	float height = 5.6f;
-	String lang = "Tamil";
+// class Parent{
+// 	String color = "Black";
+// 	float height = 5.6f;
+// 	String lang = "Tamil";
 	
-	void speak() {
-		System.out.println("Speaking tamil language");
+// 	void speak() {
+// 		System.out.println("Speaking tamil language");
+// 	}
+// 	void drink() {
+// 		System.out.println("He never drunk");
+// 	}
+// 	void play() {
+// 		System.out.println("He play Cricket");
+// 	}
+// }
+
+// class Child extends Parent{
+	
+// }
+
+// public class Main{
+// 	public static void main(String[] args) {
+// 		Child c = new Child();
+// 		System.out.println(c.color);
+// 		System.out.println(c.height);
+// 		System.out.println(c.lang);
+		
+// 		c.speak();
+// 		c.drink();
+// 		c.play();
+// 	}
+// }
+
+//--------------------------------------Example of Inheritance with Constructor chaining--------------------------------------------- 
+
+	class Test1{
+	int a ;
+	int b ;
+	
+	Test1(){
+		// super();
+		a= 204;
+		b= 335;
 	}
-	void drink() {
-		System.out.println("He never drunk");
-	}
-	void play() {
-		System.out.println("He play Cricket");
+	
+	Test1(int a,int b){
+		this.a=a;
+		this.b=b;
 	}
 }
 
-class Child extends Parent{
+class Test2 extends Test1{
+	int x;
+	int y;
 	
+	Test2(){
+		// super();
+		x = 965;
+		y = 416;
+	}
+	
+	Test2(int x,int y){
+		this.x = x;
+		this.y = y;
+	}
+	
+	void disp() {
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(x);
+		System.out.println(y);
+	}
 }
 
 public class Main{
 	public static void main(String[] args) {
-		Child c = new Child();
-		System.out.println(c.color);
-		System.out.println(c.height);
-		System.out.println(c.lang);
-		
-		c.speak();
-		c.drink();
-		c.play();
+		Test2 t = new Test2();
+		t.disp();
 	}
 }
