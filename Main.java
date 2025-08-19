@@ -708,52 +708,120 @@ package tap;
 
 // -------------------------------Example of Inheritance with Constructor chaining and super and this keyword with parameter constructer-------------------------------
 
-class Test1{
-	int a ;
-	int b ;
+// class Test1{
+// 	int a ;
+// 	int b ;
 	
-	Test1(){
-		this(100,200 );
-		a= 204;
-		b= 335;
-	}
+// 	Test1(){
+// 		this(100,200 );
+// 		a= 204;
+// 		b= 335;
+// 	}
 	
-	Test1(int a,int b){
-		// super();
-		this.a=a;
-		this.b=b;
-	}
-}
+// 	Test1(int a,int b){
+// 		// super();
+// 		this.a=a;
+// 		this.b=b;
+// 	}
+// }
 
-class Test2 extends Test1{
-	int x;
-	int y;
+// class Test2 extends Test1{
+// 	int x;
+// 	int y;
 	
-	Test2(){
-		this(9,99);
-		x = 965;
-		y = 416;
+// 	Test2(){
+// 		this(9,99);
+// 		x = 965;
+// 		y = 416;
+// 	}
+	
+// 	Test2(int x,int y){
+// 		// super();
+// 		this.x = x;
+// 		this.y = y;
+// 	}
+	
+// 	void disp() {
+// 		System.out.println(a);
+// 		System.out.println(b);
+// 		System.out.println(x);
+// 		System.out.println(y);
+// 	}
+// }
+
+// public class Main{
+// 	public static void main(String[] args) {
+// 		Test2 t = new Test2();
+// 		t.disp();
+// 	}
+// }
+
+class Operations extends Thread{
+	@Override
+	public void run() {
+		Thread t = currentThread();
+		String name = t.getName();
+		
+		if(name.equals("add")){
+			add();
+		}
+		else if (name.equals("char")) {
+			countchar();
+		}
+		else{
+			countnum();
+		}
 	}
 	
-	Test2(int x,int y){
-		// super();
-		this.x = x;
-		this.y = y;
+	void add() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the firstr Number");
+		int a = sc.nextInt();
+		System.out.println("Enter the Second Number");
+		int b = sc.nextInt();
+		System.out.println(a+b);
 	}
 	
-	void disp() {
-		System.out.println(a);
-		System.out.println(b);
-		System.out.println(x);
-		System.out.println(y);
+	void countchar() {
+		for(int i = 65 ; i < 70 ; i++) {
+			System.out.println((char)(i));
+			try {
+				Thread.sleep(2000);				
+			}
+			catch(Exception e) {
+				
+			}
+		}
+	}
+	
+	void countnum() {
+		for(int i =1 ;i < 6 ; i++) {
+			System.out.println(i);
+			try {
+				Thread.sleep(2000);				
+			}
+			catch(Exception e) {
+				
+			}
+		}
 	}
 }
 
 public class Main{
 	public static void main(String[] args) {
-		Test2 t = new Test2();
-		t.disp();
+		Operations o1 = new Operations();
+		Operations o2 = new Operations();
+		Operations o3 = new Operations();
+		
+		o1.setName("add");
+		o2.setName("char");
+		o3.setName("num");
+		
+		o1.start();
+		o2.start();
+		o3.start();
 	}
 }
+
 
 
