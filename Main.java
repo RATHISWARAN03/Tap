@@ -756,10 +756,78 @@ package tap;
 // 	}
 // }
 
-class Operations extends Thread{
+// class Operations extends Thread{
+// 	@Override
+// 	public void run() {
+// 		Thread t = currentThread();
+// 		String name = t.getName();
+		
+// 		if(name.equals("add")){
+// 			add();
+// 		}
+// 		else if (name.equals("char")) {
+// 			countchar();
+// 		}
+// 		else{
+// 			countnum();
+// 		}
+// 	}
+	
+// 	void add() {
+// 		Scanner sc = new Scanner(System.in);
+// 		System.out.println("Enter the firstr Number");
+// 		int a = sc.nextInt();
+// 		System.out.println("Enter the Second Number");
+// 		int b = sc.nextInt();
+// 		System.out.println(a+b);
+// 	}
+	
+// 	void countchar() {
+// 		for(int i = 65 ; i < 70 ; i++) {
+// 			System.out.println((char)(i));
+// 			try {
+// 				Thread.sleep(2000);				
+// 			}
+// 			catch(Exception e) {
+				
+// 			}
+// 		}
+// 	}
+	
+// 	void countnum() {
+// 		for(int i =1 ;i < 6 ; i++) {
+// 			System.out.println(i);
+// 			try {
+// 				Thread.sleep(2000);				
+// 			}
+// 			catch(Exception e) {
+				
+// 			}
+// 		}
+// 	}
+// }
+
+// public class Main{
+// 	public static void main(String[] args) {
+// 		Operations o1 = new Operations();
+// 		Operations o2 = new Operations();
+// 		Operations o3 = new Operations();
+		
+// 		o1.setName("add");
+// 		o2.setName("char");
+// 		o3.setName("num");
+		
+// 		o1.start();
+// 		o2.start();
+// 		o3.start();
+// 	}
+// }
+
+
+class Operations implements Runnable{
 	@Override
 	public void run() {
-		Thread t = currentThread();
+		Thread t = Thread.currentThread();
 		String name = t.getName();
 		
 		if(name.equals("add")){
@@ -813,15 +881,18 @@ public class Main{
 		Operations o2 = new Operations();
 		Operations o3 = new Operations();
 		
-		o1.setName("add");
-		o2.setName("char");
-		o3.setName("num");
+		Thread t1 = new Thread(o1);
+		Thread t2 = new Thread(o2);
+		Thread t3 = new Thread(o3);
 		
-		o1.start();
-		o2.start();
-		o3.start();
+		t1.setName("add");
+		t2.setName("char");
+		t3.setName("num");
+		
+		t1.start();
+		t2.start();
+		t3.start();
+		
 	}
 }
-
-
 
