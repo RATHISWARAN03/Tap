@@ -824,74 +824,149 @@ package tap;
 // }
 
 
-class Operations implements Runnable{
+// class Operations implements Runnable{
+// 	@Override
+// 	public void run() {
+// 		Thread t = Thread.currentThread();
+// 		String name = t.getName();
+		
+// 		if(name.equals("add")){
+// 			add();
+// 		}
+// 		else if (name.equals("char")) {
+// 			countchar();
+// 		}
+// 		else{
+// 			countnum();
+// 		}
+// 	}
+	
+// 	void add() {
+// 		Scanner sc = new Scanner(System.in);
+// 		System.out.println("Enter the firstr Number");
+// 		int a = sc.nextInt();
+// 		System.out.println("Enter the Second Number");
+// 		int b = sc.nextInt();
+// 		System.out.println(a+b);
+// 	}
+	
+// 	void countchar() {
+// 		for(int i = 65 ; i < 70 ; i++) {
+// 			System.out.println((char)(i));
+// 			try {
+// 				Thread.sleep(2000);				
+// 			}
+// 			catch(Exception e) {
+				
+// 			}
+// 		}
+// 	}
+	
+// 	void countnum() {
+// 		for(int i =1 ;i < 6 ; i++) {
+// 			System.out.println(i);
+// 			try {
+// 				Thread.sleep(2000);				
+// 			}
+// 			catch(Exception e) {
+				
+// 			}
+// 		}
+// 	}
+// }
+
+// public class Main{
+// 	public static void main(String[] args) {
+// 		Operations o1 = new Operations();
+// 		Operations o2 = new Operations();
+// 		Operations o3 = new Operations();
+		
+// 		Thread t1 = new Thread(o1);
+// 		Thread t2 = new Thread(o2);
+// 		Thread t3 = new Thread(o3);
+		
+// 		t1.setName("add");
+// 		t2.setName("char");
+// 		t3.setName("num");
+		
+// 		t1.start();
+// 		t2.start();
+// 		t3.start();
+		
+// 	}
+// }
+
+class Captian extends Thread{
 	@Override
 	public void run() {
-		Thread t = Thread.currentThread();
-		String name = t.getName();
-		
-		if(name.equals("add")){
-			add();
+		try {
+			
+			BatingCoach bc = new BatingCoach();
+			BowlingCoach bw = new BowlingCoach();
+			
+			bc.setDaemon(true);
+			bw.setDaemon(true);
+			
+			bc.start();
+			bw.start();
+			
+			
+			System.out.println("Enter into Stadium");
+			Thread.sleep(2000);
+			System.out.println("Analyse the Stadium");
+			Thread.sleep(2000);
+			System.out.println("Start practic in nets");
+			Thread.sleep(2000);
+			System.out.println("Practice lot in the nets with diff Balls");
+			Thread.sleep(2000);
+			System.out.println("pack up the giers he took and come");
+			Thread.sleep(2000);
+			System.out.println("complete training");
+			Thread.sleep(2000);
 		}
-		else if (name.equals("char")) {
-			countchar();
-		}
-		else{
-			countnum();
-		}
-	}
-	
-	void add() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter the firstr Number");
-		int a = sc.nextInt();
-		System.out.println("Enter the Second Number");
-		int b = sc.nextInt();
-		System.out.println(a+b);
-	}
-	
-	void countchar() {
-		for(int i = 65 ; i < 70 ; i++) {
-			System.out.println((char)(i));
-			try {
-				Thread.sleep(2000);				
-			}
-			catch(Exception e) {
-				
-			}
-		}
-	}
-	
-	void countnum() {
-		for(int i =1 ;i < 6 ; i++) {
-			System.out.println(i);
-			try {
-				Thread.sleep(2000);				
-			}
-			catch(Exception e) {
-				
-			}
+		catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 }
 
+class BatingCoach extends Thread{
+	@Override
+	public void run() {
+		try {
+			for( ; ; ) {			
+				System.out.println("Batting coach help the caption in every 24/7");
+				Thread.sleep(2000);
+			}
+		}
+			catch(Exception e){
+				e.printStackTrace();
+			}
+	}
+}
+
+class BowlingCoach extends Thread{
+	@Override
+	public void run() {
+		try {
+			for( ; ; ) {
+				System.out.println("Bowling coach help the caption in every 24/7");			
+				Thread.sleep(2000);
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+}
 public class Main{
 	public static void main(String[] args) {
-		Operations o1 = new Operations();
-		Operations o2 = new Operations();
-		Operations o3 = new Operations();
+		Captian c = new Captian();
 		
-		Thread t1 = new Thread(o1);
-		Thread t2 = new Thread(o2);
-		Thread t3 = new Thread(o3);
 		
-		t1.setName("add");
-		t2.setName("char");
-		t3.setName("num");
-		
-		t1.start();
-		t2.start();
-		t3.start();
+		c.start();
+	
 		
 	}
 }
