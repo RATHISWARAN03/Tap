@@ -896,78 +896,153 @@ package tap;
 // 	}
 // }
 
-class Captian extends Thread{
-	@Override
-	public void run() {
-		try {
+// class Captian extends Thread{
+// 	@Override
+// 	public void run() {
+// 		try {
 			
-			BatingCoach bc = new BatingCoach();
-			BowlingCoach bw = new BowlingCoach();
+// 			BatingCoach bc = new BatingCoach();
+// 			BowlingCoach bw = new BowlingCoach();
 			
-			bc.setDaemon(true);
-			bw.setDaemon(true);
+// 			bc.setDaemon(true);
+// 			bw.setDaemon(true);
 			
-			bc.start();
-			bw.start();
+// 			bc.start();
+// 			bw.start();
 			
 			
-			System.out.println("Enter into Stadium");
-			Thread.sleep(2000);
-			System.out.println("Analyse the Stadium");
-			Thread.sleep(2000);
-			System.out.println("Start practic in nets");
-			Thread.sleep(2000);
-			System.out.println("Practice lot in the nets with diff Balls");
-			Thread.sleep(2000);
-			System.out.println("pack up the giers he took and come");
-			Thread.sleep(2000);
-			System.out.println("complete training");
-			Thread.sleep(2000);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-}
+// 			System.out.println("Enter into Stadium");
+// 			Thread.sleep(2000);
+// 			System.out.println("Analyse the Stadium");
+// 			Thread.sleep(2000);
+// 			System.out.println("Start practic in nets");
+// 			Thread.sleep(2000);
+// 			System.out.println("Practice lot in the nets with diff Balls");
+// 			Thread.sleep(2000);
+// 			System.out.println("pack up the giers he took and come");
+// 			Thread.sleep(2000);
+// 			System.out.println("complete training");
+// 			Thread.sleep(2000);
+// 		}
+// 		catch (Exception e) {
+// 			e.printStackTrace();
+// 		}
+// 	}
+// }
 
-class BatingCoach extends Thread{
-	@Override
-	public void run() {
-		try {
-			for( ; ; ) {			
-				System.out.println("Batting coach help the caption in every 24/7");
-				Thread.sleep(2000);
-			}
-		}
-			catch(Exception e){
-				e.printStackTrace();
-			}
-	}
-}
+// class BatingCoach extends Thread{
+// 	@Override
+// 	public void run() {
+// 		try {
+// 			for( ; ; ) {			
+// 				System.out.println("Batting coach help the caption in every 24/7");
+// 				Thread.sleep(2000);
+// 			}
+// 		}
+// 			catch(Exception e){
+// 				e.printStackTrace();
+// 			}
+// 	}
+// }
 
-class BowlingCoach extends Thread{
-	@Override
-	public void run() {
+// class BowlingCoach extends Thread{
+// 	@Override
+// 	public void run() {
+// 		try {
+// 			for( ; ; ) {
+// 				System.out.println("Bowling coach help the caption in every 24/7");			
+// 				Thread.sleep(2000);
+// 			}
+// 		}
+// 		catch(Exception e) {
+// 			e.printStackTrace();
+// 		}
+		
+// 	}
+// }
+// public class Main{
+// 	public static void main(String[] args) {
+// 		Captian c = new Captian();
+		
+		
+// 		c.start();
+	
+		
+// 	}
+// }
+
+// -------------------------------------------------------------------synchronization of threads----------------------------------------------------------------
+
+class Bathroom{
+	synchronized void use() {
 		try {
-			for( ; ; ) {
-				System.out.println("Bowling coach help the caption in every 24/7");			
-				Thread.sleep(2000);
-			}
+			System.out.println(Thread.currentThread().getName()+" Enter into  the Bathroom");
+			Thread.sleep(2000);
+			System.out.println(Thread.currentThread().getName()+" Use the Bathroom");
+			Thread.sleep(2000);
+			System.out.println(Thread.currentThread().getName()+" Enter outside the Bathroom");
+			Thread.sleep(2000);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
 }
+
+class Boy extends Thread{
+	
+//	create the parameterized constructor
+	 Bathroom bathroom;
+	public Boy(Bathroom bathroom) {
+		this.bathroom = bathroom;
+	}
+	
+	@Override
+	public void run() {
+		bathroom.use();
+	}
+}
+
+class Girl extends Thread{
+	 Bathroom bathroom;
+		public Girl(Bathroom bathroom) {
+			this.bathroom = bathroom;
+		}
+		
+	@Override
+	public void run() {
+		bathroom.use();
+	}
+}
+class Others extends Thread{
+	
+	 Bathroom bathroom;
+		public Others(Bathroom bathroom) {
+			this.bathroom = bathroom;
+		}
+		
+	@Override
+	public void run() {
+		bathroom.use();
+	}
+}
+
 public class Main{
 	public static void main(String[] args) {
-		Captian c = new Captian();
+		Bathroom bathroom = new Bathroom();	
 		
+		Boy boy = new Boy(bathroom);
+		Girl girl = new Girl(bathroom);
+		Others others = new Others(bathroom);
 		
-		c.start();
-	
+		boy.setName("Boy");
+		girl.setName("Girl");
+		others.setName("Others");
 		
+		boy.start();
+		girl.start();
+		others.start();
 	}
 }
+
 
