@@ -973,76 +973,159 @@ package tap;
 
 // -------------------------------------------------------------------synchronization of threads----------------------------------------------------------------
 
-class Bathroom{
-	synchronized void use() {
-		try {
-			System.out.println(Thread.currentThread().getName()+" Enter into  the Bathroom");
-			Thread.sleep(2000);
-			System.out.println(Thread.currentThread().getName()+" Use the Bathroom");
-			Thread.sleep(2000);
-			System.out.println(Thread.currentThread().getName()+" Enter outside the Bathroom");
-			Thread.sleep(2000);
+// class Bathroom{
+// 	synchronized void use() {
+// 		try {
+// 			System.out.println(Thread.currentThread().getName()+" Enter into  the Bathroom");
+// 			Thread.sleep(2000);
+// 			System.out.println(Thread.currentThread().getName()+" Use the Bathroom");
+// 			Thread.sleep(2000);
+// 			System.out.println(Thread.currentThread().getName()+" Enter outside the Bathroom");
+// 			Thread.sleep(2000);
+// 		}
+// 		catch(Exception e) {
+// 			e.printStackTrace();
+// 		}
+// 	}
+// }
+
+// class Boy extends Thread{
+	
+// //	create the parameterized constructor
+// 	 Bathroom bathroom;
+// 	public Boy(Bathroom bathroom) {
+// 		this.bathroom = bathroom;
+// 	}
+	
+// 	@Override
+// 	public void run() {
+// 		bathroom.use();
+// 	}
+// }
+
+// class Girl extends Thread{
+// 	 Bathroom bathroom;
+// 		public Girl(Bathroom bathroom) {
+// 			this.bathroom = bathroom;
+// 		}
+		
+// 	@Override
+// 	public void run() {
+// 		bathroom.use();
+// 	}
+// }
+// class Others extends Thread{
+	
+// 	 Bathroom bathroom;
+// 		public Others(Bathroom bathroom) {
+// 			this.bathroom = bathroom;
+// 		}
+		
+// 	@Override
+// 	public void run() {
+// 		bathroom.use();
+// 	}
+// }
+
+// public class Main{
+// 	public static void main(String[] args) {
+// 		Bathroom bathroom = new Bathroom();	
+		
+// 		Boy boy = new Boy(bathroom);
+// 		Girl girl = new Girl(bathroom);
+// 		Others others = new Others(bathroom);
+		
+// 		boy.setName("Boy");
+// 		girl.setName("Girl");
+// 		others.setName("Others");
+		
+// 		boy.start();
+// 		girl.start();
+// 		others.start();
+// 	}
+// }
+
+// -----------------------------------------------------Producer consumer problem---------------------------------------------------
+
+class Queue {
+	private int data;
+	boolean isDataPresent = false;
+
+	public synchronized void setData(int data) {
+		if(isDataPresent == false) {
+			this.data = data;
+			System.out.println("Producing the data: "+this.data);
+			isDataPresent = true;
+			notify();
+		}			
+			else {
+				try {
+					wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+	}
+	public synchronized void getData() {
+		if(isDataPresent == true) {			
+			System.out.println("Consuming the data: "+data);
+			isDataPresent = false;
+			notify();
 		}
-		catch(Exception e) {
-			e.printStackTrace();
+		else {
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	} 
+}
+
+class Producer extends Thread{
+
+	Queue q;
+	public Producer(Queue q) {
+		this.q=q;
+	}
+
+	@Override
+	public void run() {
+		int i = 1;
+		for(;;) {
+			q.setData(i++);
 		}
 	}
 }
 
-class Boy extends Thread{
-	
-//	create the parameterized constructor
-	 Bathroom bathroom;
-	public Boy(Bathroom bathroom) {
-		this.bathroom = bathroom;
+class Consumer extends Thread{
+
+	Queue q;
+	public Consumer(Queue q) {
+		this.q = q;
 	}
-	
+
 	@Override
 	public void run() {
-		bathroom.use();
+		for(;;) {
+			q.getData();
+		}
 	}
 }
 
-class Girl extends Thread{
-	 Bathroom bathroom;
-		public Girl(Bathroom bathroom) {
-			this.bathroom = bathroom;
-		}
-		
-	@Override
-	public void run() {
-		bathroom.use();
-	}
-}
-class Others extends Thread{
-	
-	 Bathroom bathroom;
-		public Others(Bathroom bathroom) {
-			this.bathroom = bathroom;
-		}
-		
-	@Override
-	public void run() {
-		bathroom.use();
-	}
-}
 
 public class Main{
 	public static void main(String[] args) {
-		Bathroom bathroom = new Bathroom();	
-		
-		Boy boy = new Boy(bathroom);
-		Girl girl = new Girl(bathroom);
-		Others others = new Others(bathroom);
-		
-		boy.setName("Boy");
-		girl.setName("Girl");
-		others.setName("Others");
-		
-		boy.start();
-		girl.start();
-		others.start();
+		Queue q = new Queue();
+
+		Producer p = new Producer(q);
+		Consumer c = new Consumer(q);
+
+		p.setName("Producer");
+		c.setName("Consumer");
+
+		p.start();
+		c.start();
 	}
 }
-
 
