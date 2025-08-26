@@ -1131,58 +1131,106 @@ package tap;
 
 // -----------------------------------------------------Life cycle of Thread---------------------------------------------------------
 
-class Legends extends Thread{
 
-    String re1 = "Bramastra";
-    String re2 = "Sarpastra";
-    String re3 = "Pasupasastra";
+// class Legends extends Thread{
+
+//     final String re1 = "Bramastra";
+//     final String re2 = "Sarpastra";
+//     final String re3 = "Pasupasastra";
+// 	@Override
+// 	public void run() {
+// 		if(currentThread().getName().equals("Arjunan")) {
+// 			arjunan();
+// 		}
+// 		else{
+// 			kanna();
+// 		}
+// 	}
+
+// 	void arjunan() {
+// 		try {
+// 			Thread.sleep(2000);
+// 			synchronized(re1){
+// 				System.out.println("A got first chakra");
+// 				Thread.sleep(2000);
+// 				synchronized(re2){
+// 					System.out.println("A got second chakra");
+// 					Thread.sleep(2000);
+// 					synchronized(re3){
+// 						System.out.println("A got Third chakra");
+
+// 					}
+// 				}
+// 			}
+// 		}
+// 		catch(Exception e) {
+// 			e.printStackTrace();
+// 		}
+
+// 	}
+
+// 	void kanna() {
+// 		try {
+// 			Thread.sleep(2000);
+// 			synchronized(re1){
+// 				System.out.println("K got first chakra");
+// 				Thread.sleep(2000);
+// 				synchronized(re2){
+// 					System.out.println("K got second chakra");
+// 					Thread.sleep(2000);
+// 					synchronized(re3){
+// 						System.out.println("K got Third chakra");
+
+// 					}
+// 				}
+// 			}
+// 		}
+// 		catch(Exception e) {
+// 			e.printStackTrace();
+// 		}
+// 	}
+// }
+
+// public class Main{
+// 	public static void main(String[] args) {
+// 		Legends l1 = new Legends();
+// 		Legends l2 = new Legends();
+
+// 		l1.setName("Arjunan");
+// 		l2.setName("Karnan");
+
+// 		l1.start();
+// 		l2.start();
+// 	}
+// }
+
+// --------------------------------------------------Use Join() method in thread--------------------------------------------------
+
+class Alpha extends Thread{
 	@Override
 	public void run() {
-		if(currentThread().getName().equals("Arjunan")) {
-			arjunan();
-		}
-		else{
-			kanna();
-		}
-	}
-
-	void arjunan() {
 		try {
+			System.out.println("Alpha start");
 			Thread.sleep(2000);
-			synchronized(re1){
-				System.out.println("A got first chakra");
-				Thread.sleep(2000);
-				synchronized(re2){
-					System.out.println("A got second chakra");
-					Thread.sleep(2000);
-					synchronized(re3){
-						System.out.println("A got Third chakra");
-
-					}
-				}
-			}
+			System.out.println("Alpha execute");
+			Thread.sleep(2000);
+			System.out.println("Alpha complete");
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 		}
-
 	}
+}
 
-	void kanna() {
+class Beta extends Thread{
+	@Override
+	public void run() {
 		try {
+			System.out.println("Beta start");
 			Thread.sleep(2000);
-			synchronized(re1){
-				System.out.println("K got first chakra");
-				Thread.sleep(2000);
-				synchronized(re2){
-					System.out.println("K got second chakra");
-					Thread.sleep(2000);
-					synchronized(re3){
-						System.out.println("K got Third chakra");
-
-					}
-				}
-			}
+			System.out.println("Beta execute");
+			Thread.sleep(2000);
+			System.out.println("Beta complete");
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -1191,15 +1239,15 @@ class Legends extends Thread{
 }
 
 public class Main{
-	public static void main(String[] args) {
-		Legends l1 = new Legends();
-		Legends l2 = new Legends();
-
-		l1.setName("Arjunan");
-		l2.setName("Karnan");
-
-		l1.start();
-		l2.start();
+	public static void main(String[] args) throws Exception {
+		System.out.println("Main Execution Start");
+		Alpha a = new Alpha();
+		Beta b = new Beta();
+		
+		a.start();
+		a.join();
+		b.start();
+		b.join();
+		System.out.println("Main Execution Complete");
 	}
 }
-
