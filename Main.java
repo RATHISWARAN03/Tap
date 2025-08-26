@@ -1047,85 +1047,159 @@ package tap;
 
 // -----------------------------------------------------Producer consumer problem---------------------------------------------------
 
-class Queue {
-	private int data;
-	boolean isDataPresent = false;
+// class Queue {
+// 	private int data;
+// 	boolean isDataPresent = false;
 
-	public synchronized void setData(int data) {
-		if(isDataPresent == false) {
-			this.data = data;
-			System.out.println("Producing the data: "+this.data);
-			isDataPresent = true;
-			notify();
-		}			
-			else {
-				try {
-					wait();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
+// 	public synchronized void setData(int data) {
+// 		if(isDataPresent == false) {
+// 			this.data = data;
+// 			System.out.println("Producing the data: "+this.data);
+// 			isDataPresent = true;
+// 			notify();
+// 		}			
+// 			else {
+// 				try {
+// 					wait();
+// 				} catch (InterruptedException e) {
+// 					e.printStackTrace();
+// 				}
+// 			}
+// 	}
+// 	public synchronized void getData() {
+// 		if(isDataPresent == true) {			
+// 			System.out.println("Consuming the data: "+data);
+// 			isDataPresent = false;
+// 			notify();
+// 		}
+// 		else {
+// 			try {
+// 				wait();
+// 			} catch (InterruptedException e) {
+// 				e.printStackTrace();
+// 			}
+// 		}
+// 	} 
+// }
+
+// class Producer extends Thread{
+
+// 	Queue q;
+// 	public Producer(Queue q) {
+// 		this.q=q;
+// 	}
+
+// 	@Override
+// 	public void run() {
+// 		int i = 1;
+// 		for(;;) {
+// 			q.setData(i++);
+// 		}
+// 	}
+// }
+
+// class Consumer extends Thread{
+
+// 	Queue q;
+// 	public Consumer(Queue q) {
+// 		this.q = q;
+// 	}
+
+// 	@Override
+// 	public void run() {
+// 		for(;;) {
+// 			q.getData();
+// 		}
+// 	}
+// }
+
+
+// public class Main{
+// 	public static void main(String[] args) {
+// 		Queue q = new Queue();
+
+// 		Producer p = new Producer(q);
+// 		Consumer c = new Consumer(q);
+
+// 		p.setName("Producer");
+// 		c.setName("Consumer");
+
+// 		p.start();
+// 		c.start();
+// 	}
+// }
+
+// -----------------------------------------------------Life cycle of Thread---------------------------------------------------------
+
+class Legends extends Thread{
+
+    String re1 = "Bramastra";
+    String re2 = "Sarpastra";
+    String re3 = "Pasupasastra";
+	@Override
+	public void run() {
+		if(currentThread().getName().equals("Arjunan")) {
+			arjunan();
+		}
+		else{
+			kanna();
+		}
+	}
+
+	void arjunan() {
+		try {
+			Thread.sleep(2000);
+			synchronized(re1){
+				System.out.println("A got first chakra");
+				Thread.sleep(2000);
+				synchronized(re2){
+					System.out.println("A got second chakra");
+					Thread.sleep(2000);
+					synchronized(re3){
+						System.out.println("A got Third chakra");
+
+					}
 				}
 			}
-	}
-	public synchronized void getData() {
-		if(isDataPresent == true) {			
-			System.out.println("Consuming the data: "+data);
-			isDataPresent = false;
-			notify();
 		}
-		else {
-			try {
-				wait();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	void kanna() {
+		try {
+			Thread.sleep(2000);
+			synchronized(re1){
+				System.out.println("K got first chakra");
+				Thread.sleep(2000);
+				synchronized(re2){
+					System.out.println("K got second chakra");
+					Thread.sleep(2000);
+					synchronized(re3){
+						System.out.println("K got Third chakra");
+
+					}
+				}
 			}
 		}
-	} 
-}
-
-class Producer extends Thread{
-
-	Queue q;
-	public Producer(Queue q) {
-		this.q=q;
-	}
-
-	@Override
-	public void run() {
-		int i = 1;
-		for(;;) {
-			q.setData(i++);
+		catch(Exception e) {
+			e.printStackTrace();
 		}
 	}
 }
-
-class Consumer extends Thread{
-
-	Queue q;
-	public Consumer(Queue q) {
-		this.q = q;
-	}
-
-	@Override
-	public void run() {
-		for(;;) {
-			q.getData();
-		}
-	}
-}
-
 
 public class Main{
 	public static void main(String[] args) {
-		Queue q = new Queue();
+		Legends l1 = new Legends();
+		Legends l2 = new Legends();
 
-		Producer p = new Producer(q);
-		Consumer c = new Consumer(q);
+		l1.setName("Arjunan");
+		l2.setName("Karnan");
 
-		p.setName("Producer");
-		c.setName("Consumer");
-
-		p.start();
-		c.start();
+		l1.start();
+		l2.start();
 	}
 }
 
