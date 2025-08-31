@@ -327,10 +327,72 @@ package tap;
 // 		System.out.println(h.ha.getColour());
 		
 // 		System.out.println(b.getMileage());
-
 // 	}
 // }
 
+
+// ------------------------------------Another method to acheive polymorphism--------------------------------
+
+class plane {
+	void takeOff() {
+		System.out.println("Plane take off");
+	}
+	void fly() {
+		System.out.println("Plane fly");
+	}
+	void landing() {
+		System.out.println("Plane landing");
+	}
+}
+
+class PassengerPlane extends plane{
+	@Override
+	void takeOff() {
+		System.out.println("PassengerPlane take off");
+	}
+	@Override
+	void fly() {
+		System.out.println("PassengerPlane fly");
+	}
+	@Override
+	void landing() {
+		System.out.println("PassengerPlane landing");
+	}
+}
+
+class CargoPlane extends plane{
+	@Override
+	void takeOff() {
+		System.out.println("CargoPlane take off");
+	}
+	@Override
+	void fly() {
+		System.out.println("CargoPlane fly");
+	}
+	@Override
+	void landing() {
+		System.out.println("CargoPlane landing");
+	}
+}
+
+class Airport{
+	void disp(plane p) {
+		p.takeOff();
+		p.fly();
+		p.landing();
+	}
+}
+
+public class Main{
+	public static void main(String[] args) {
+		PassengerPlane pp = new PassengerPlane();
+		CargoPlane c = new CargoPlane();
+
+		Airport a = new Airport();
+		a.disp(pp);
+		a.disp(c);
+	}
+}
 
 // class Calculator{
 // 	void add() {
@@ -971,7 +1033,7 @@ package tap;
 // 	}
 // }
 
-// -------------------------------------------------------------------synchronization of threads----------------------------------------------------------------
+// --------------------------------------------------synchronization of threads-----------------------------------------------------------
 
 // class Bathroom{
 // 	synchronized void use() {
