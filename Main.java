@@ -333,66 +333,66 @@ package tap;
 
 // ------------------------------------Another method to acheive polymorphism--------------------------------
 
-class plane {
-	void takeOff() {
-		System.out.println("Plane take off");
-	}
-	void fly() {
-		System.out.println("Plane fly");
-	}
-	void landing() {
-		System.out.println("Plane landing");
-	}
-}
+// class plane {
+// 	void takeOff() {
+// 		System.out.println("Plane take off");
+// 	}
+// 	void fly() {
+// 		System.out.println("Plane fly");
+// 	}
+// 	void landing() {
+// 		System.out.println("Plane landing");
+// 	}
+// }
 
-class PassengerPlane extends plane{
-	@Override
-	void takeOff() {
-		System.out.println("PassengerPlane take off");
-	}
-	@Override
-	void fly() {
-		System.out.println("PassengerPlane fly");
-	}
-	@Override
-	void landing() {
-		System.out.println("PassengerPlane landing");
-	}
-}
+// class PassengerPlane extends plane{
+// 	@Override
+// 	void takeOff() {
+// 		System.out.println("PassengerPlane take off");
+// 	}
+// 	@Override
+// 	void fly() {
+// 		System.out.println("PassengerPlane fly");
+// 	}
+// 	@Override
+// 	void landing() {
+// 		System.out.println("PassengerPlane landing");
+// 	}
+// }
 
-class CargoPlane extends plane{
-	@Override
-	void takeOff() {
-		System.out.println("CargoPlane take off");
-	}
-	@Override
-	void fly() {
-		System.out.println("CargoPlane fly");
-	}
-	@Override
-	void landing() {
-		System.out.println("CargoPlane landing");
-	}
-}
+// class CargoPlane extends plane{
+// 	@Override
+// 	void takeOff() {
+// 		System.out.println("CargoPlane take off");
+// 	}
+// 	@Override
+// 	void fly() {
+// 		System.out.println("CargoPlane fly");
+// 	}
+// 	@Override
+// 	void landing() {
+// 		System.out.println("CargoPlane landing");
+// 	}
+// }
 
-class Airport{
-	void disp(plane p) {
-		p.takeOff();
-		p.fly();
-		p.landing();
-	}
-}
+// class Airport{
+// 	void disp(plane p) {
+// 		p.takeOff();
+// 		p.fly();
+// 		p.landing();
+// 	}
+// }
 
-public class Main{
-	public static void main(String[] args) {
-		PassengerPlane pp = new PassengerPlane();
-		CargoPlane c = new CargoPlane();
+// public class Main{
+// 	public static void main(String[] args) {
+// 		PassengerPlane pp = new PassengerPlane();
+// 		CargoPlane c = new CargoPlane();
 
-		Airport a = new Airport();
-		a.disp(pp);
-		a.disp(c);
-	}
-}
+// 		Airport a = new Airport();
+// 		a.disp(pp);
+// 		a.disp(c);
+// 	}
+// }
 
 // class Calculator{
 // 	void add() {
@@ -510,31 +510,31 @@ public class Main{
 //	}
 //}
 
-// import java.util.Scanner;
+import java.util.Scanner;
 
-// public class Main{
-// 	public static void main(String[] args) {
-// 		Scanner sc = null;
-// 		try {
-// 			sc= new Scanner(System.in);
-// 			System.out.println("Enter the number 1st");
-// 			int n = sc.nextInt();
-// 			System.out.println("Enter the number 2nd");
-// 			int m = sc.nextInt();
-// 			System.out.println("Enter the total");
-// 			int a = n/m;
-// 			System.out.println(a);
-// 		}
+public class Main{
+	public static void main(String[] args) {
+		Scanner sc = null;
+		try {
+			sc= new Scanner(System.in);
+			System.out.println("Enter the number 1st");
+			int n = sc.nextInt();
+			System.out.println("Enter the number 2nd");
+			int m = sc.nextInt();
+			System.out.println("Enter the total");
+			int a = n/m;
+			System.out.println(a);
+		}
 
-// 		catch (ArithmeticException a){
-// 			System.out.println("ArithmeticException is affected");
-// 		}
-// 		catch(Exception e) {
-// 			System.out.println("give valid divisor");
-// 		}
-// 		sc.close();
-// 	}
-// }
+		catch (ArithmeticException a){
+			System.out.println("ArithmeticException is affected");
+		}
+		catch(Exception e) {
+			System.out.println("give valid divisor");
+		}
+		sc.close();
+	}
+}
 
 // public class Main{
 // 	public static void main(String[] args) {
@@ -1268,48 +1268,122 @@ public class Main{
 
 // --------------------------------------------------Use Join() method in thread--------------------------------------------------
 
-class Alpha extends Thread{
-	@Override
-	public void run() {
-		try {
-			System.out.println("Alpha start");
-			Thread.sleep(2000);
-			System.out.println("Alpha execute");
-			Thread.sleep(2000);
-			System.out.println("Alpha complete");
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
-}
+// class Alpha extends Thread{
+// 	@Override
+// 	public void run() {
+// 		try {
+// 			System.out.println("Alpha start");
+// 			Thread.sleep(2000);
+// 			System.out.println("Alpha execute");
+// 			Thread.sleep(2000);
+// 			System.out.println("Alpha complete");
+// 		}
+// 		catch(Exception e) {
+// 			e.printStackTrace();
+// 		}
+// 	}
+// }
 
-class Beta extends Thread{
-	@Override
-	public void run() {
-		try {
-			System.out.println("Beta start");
-			Thread.sleep(2000);
-			System.out.println("Beta execute");
-			Thread.sleep(2000);
-			System.out.println("Beta complete");
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
-}
+// class Beta extends Thread{
+// 	@Override
+// 	public void run() {
+// 		try {
+// 			System.out.println("Beta start");
+// 			Thread.sleep(2000);
+// 			System.out.println("Beta execute");
+// 			Thread.sleep(2000);
+// 			System.out.println("Beta complete");
+// 		}
+// 		catch(Exception e) {
+// 			e.printStackTrace();
+// 		}
+// 	}
+// }
 
-public class Main{
-	public static void main(String[] args) throws Exception {
-		System.out.println("Main Execution Start");
-		Alpha a = new Alpha();
-		Beta b = new Beta();
+// public class Main{
+// 	public static void main(String[] args) throws Exception {
+// 		System.out.println("Main Execution Start");
+// 		Alpha a = new Alpha();
+// 		Beta b = new Beta();
 		
-		a.start();
-		a.join();
-		b.start();
-		b.join();
-		System.out.println("Main Execution Complete");
+// 		a.start();
+// 		a.join();
+// 		b.start();
+// 		b.join();
+// 		System.out.println("Main Execution Complete");
+// 	}
+// }
+
+//----------------------------------------------------------------Comparator interface-------------------------------------------------------------------
+class Demo implements Comparator<Employee>{
+	@Override
+	public int compare(Employee Alex, Employee Sams) {
+		Integer id1 = Alex.getId();
+		Integer id2 = Sams.getId();
+			return -1*id1.compareTo(id2);
+	}
+}
+
+class Employee extends Demo{
+	private int id;
+	private String name;
+	private int salary;
+	
+	public Employee() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Employee(int id, String name, int salary) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.salary = salary;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getSalary() {
+		return salary;
+	}
+
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+	@Override
+	public String toString() {
+		return id+" "+name+" "+salary;
+	}
+}
+public class Main{
+	public static void main(String[] args) {
+		Employee Alex = new Employee(1,"Alex",35000);
+		Employee Sams = new Employee(2,"Sams",40000);
+		
+		ArrayList<Employee> al = new ArrayList<Employee>();
+		al.add(Alex);
+		al.add(Sams);
+		
+		Demo d = new Demo();
+		
+		Collections.sort(al,d);
+
+		
+		for(Object res:al) {
+			System.out.println(res);
+		}
 	}
 }
