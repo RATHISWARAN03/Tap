@@ -1315,75 +1315,158 @@ public class Main{
 // }
 
 //----------------------------------------------------------------Comparator interface-------------------------------------------------------------------
-class Demo implements Comparator<Employee>{
-	@Override
-	public int compare(Employee Alex, Employee Sams) {
-		Integer id1 = Alex.getId();
-		Integer id2 = Sams.getId();
-			return -1*id1.compareTo(id2);
-	}
-}
+// class Demo implements Comparator <Employee>{
+// 	@Override
+// 	public int compare(Employee Alex, Employee Sams) {
+// 		Integer id1 = Alex.getId();
+// 		Integer id2 = Sams.getId();
+// 			return -1*id1.compareTo(id2);
+// 	}
+// }
 
-class Employee extends Demo{
-	private int id;
-	private String name;
-	private int salary;
+// class Employee extends Demo{
+// 	private int id;
+// 	private String name;
+// 	private int salary;
 	
-	public Employee() {
-		// TODO Auto-generated constructor stub
-	}
+// 	public Employee() {
+// 		// TODO Auto-generated constructor stub
+// 	}
 
-	public Employee(int id, String name, int salary) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.salary = salary;
-	}
+// 	public Employee(int id, String name, int salary) {
+// 		super();
+// 		this.id = id;
+// 		this.name = name;
+// 		this.salary = salary;
+// 	}
 
-	public int getId() {
-		return id;
-	}
+// 	public int getId() {
+// 		return id;
+// 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
+// 	public void setId(int id) {
+// 		this.id = id;
+// 	}
 
-	public String getName() {
-		return name;
-	}
+// 	public String getName() {
+// 		return name;
+// 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
+// 	public void setName(String name) {
+// 		this.name = name;
+// 	}
 
-	public int getSalary() {
-		return salary;
-	}
+// 	public int getSalary() {
+// 		return salary;
+// 	}
 
-	public void setSalary(int salary) {
-		this.salary = salary;
-	}
-	@Override
-	public String toString() {
-		return id+" "+name+" "+salary;
-	}
-}
-public class Main{
-	public static void main(String[] args) {
-		Employee Alex = new Employee(1,"Alex",35000);
-		Employee Sams = new Employee(2,"Sams",40000);
+// 	public void setSalary(int salary) {
+// 		this.salary = salary;
+// 	}
+// 	@Override
+// 	public String toString() {
+// 		return id+" "+name+" "+salary;
+// 	}
+// }
+// public class Main{
+// 	public static void main(String[] args) {
+// 		Employee Alex = new Employee(1,"Alex",35000);
+// 		Employee Sams = new Employee(2,"Sams",40000);
 		
-		ArrayList<Employee> al = new ArrayList<Employee>();
-		al.add(Alex);
-		al.add(Sams);
+// 		ArrayList<Employee> al = new ArrayList<Employee>();
+// 		al.add(Alex);
+// 		al.add(Sams);
 		
-		Demo d = new Demo();
+// 		Demo d = new Demo();
 		
-		Collections.sort(al,d);
+// 		Collections.sort(al,d);
 
 		
-		for(Object res:al) {
-			System.out.println(res);
-		}
-	}
-}
+// 		for(Object res:al) {
+// 			System.out.println(res);
+// 		}
+// 	}
+// }
+
+//----------------------------------------------------------------------Comparable interface--------------------------------------------------------------------
+
+//class Demo implements Comparable<Demo> {
+//	private int id;
+//	private String name;
+//	private int salary;
+//	
+//	public Demo() {
+//		// TODO Auto-generated constructor stub
+//	}
+//
+//	public Demo(int id, String name, int salary) {
+//		super();
+//		this.id = id;
+//		this.name = name;
+//		this.salary = salary;
+//	}
+//
+//	public int getId() {
+//		return id;
+//	}
+//
+//	public void setId(int id) {
+//		this.id = id;
+//	}
+//
+//	public String getName() {
+//		return name;
+//	}
+//
+//	public void setName(String name) {
+//		this.name = name;
+//	}
+//
+//	public int getSalary() {
+//		return salary;
+//	}
+//
+//	public void setSalary(int salary) {
+//		this.salary = salary;
+//	}
+//
+//	@Override
+//	public String toString() {
+//		return id +" "+ name +" "+ salary ;
+//	}
+//	@Override
+//	public int compareTo(Demo d2) {
+//		Demo d1 = this;
+//		Integer id1= d1.getId();
+//		Integer id2 = d2.getId();
+//		
+////		if(id1>id2) {
+////			return 1;
+////		}
+////		else if(id1 < id2) {
+////			return -1;
+////		}
+////		else {
+////			return 0;
+////		}
+//		
+//		return id1.compareTo(id2);
+//	}
+//	
+//	
+//}
+//public class Main{
+//	public static void main(String[] args) {
+//	Scanner sc = new Scanner (System.in);
+//	Demo d1 = new Demo (2,"Rathis",25000);
+//	Demo d2 = new Demo (1,"Waran",35000);
+//	
+//
+//	ArrayList<Demo> al = new ArrayList<Demo>();
+//	al.add(d1);
+//	al.add(d2);
+//	
+//	Collections.sort(al);
+//	System.out.println(al);
+//}
+//}
